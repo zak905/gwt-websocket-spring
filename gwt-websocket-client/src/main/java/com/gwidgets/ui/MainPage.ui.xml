@@ -1,0 +1,83 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+
+	<ui:style>
+	  
+	</ui:style>
+	<g:HTMLPanel>
+
+    <paper-drawer-panel id="paperDrawerPanel">
+      <!-- Drawer Scroll Header Panel -->
+      <paper-scroll-header-panel drawer="" fixed=""> 
+      
+        <!-- Drawer Toolbar -->
+        <paper-toolbar id="drawerToolbar">
+          <span class="menu-name">Menu</span>
+        </paper-toolbar>
+
+        <!-- Drawer Content -->
+        <paper-menu attr-for-selected="data-route" selected="home" ui:field="paperMenu">
+          <a data-route="home" class="link" ui:field="homeLink">
+            <iron-icon icon="home"></iron-icon>
+            <span>Inbox</span>
+          </a>
+
+          <a data-route="send" class="link" ui:field="sendLink">
+            <iron-icon icon="info"></iron-icon>
+            <span>Send</span>
+          </a>
+
+          
+        </paper-menu>
+      </paper-scroll-header-panel>
+
+      <!-- Main Area -->
+       <paper-scroll-header-panel main="" id="headerPanelMain" condenses="" keep-condensed-header="">
+   
+        <!-- Main Toolbar -->
+        <paper-toolbar id="mainToolbar" class="tall">
+           <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle=""></paper-icon-button> 
+          
+
+          <span class="space"></span>
+
+          <paper-icon-button icon="refresh"></paper-icon-button>
+          <paper-icon-button icon="search"></paper-icon-button>
+
+          <div class="middle middle-container">
+            <div class="app-name">GWT Websocket Example</div>
+          </div>
+
+          <!-- Application sub title -->
+          <div class="bottom bottom-container">
+            <div class="bottom-title">description</div>
+          </div>
+        </paper-toolbar>
+
+        <!-- Main Content -->
+        <div class="content">
+          <iron-pages attr-for-selected="data-route" selected="home" ui:field="ironPages">
+            <section  data-route="home">
+              <paper-material ui:field="homePanel" class="mainContent" elevation="1">
+                   <h2> Messages Received from websocket (each 2mins): </h2>
+                   
+              </paper-material>
+            </section>
+            
+            <section  data-route="send">
+              <paper-material class="mainContent" elevation="1">
+                <paper-input always-float-label="" label="Message to send" ui:field="messageInput"></paper-input>
+                <paper-button raised="" ui:field="sendButton">Send Message through Websocket</paper-button>
+              </paper-material>
+            </section>
+          </iron-pages>
+        </div>
+      </paper-scroll-header-panel>
+    </paper-drawer-panel>
+ 
+    <paper-toast  ui:field="notificationsToast">Received a new notification</paper-toast>
+	
+	</g:HTMLPanel>
+	
+</ui:UiBinder>
